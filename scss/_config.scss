@@ -1,0 +1,27 @@
+// NOTES
+// _config used is for any variables, mixins or functions etc
+// this file won't be compiled into css 
+// the underscore tells scss not to import because it is a partial used to import into another file
+
+$font-stack: Arial, Helvetica, sans-serif;
+$light-color: #f4f4f4;
+$primary-color: #0e6cff;
+// $primary-color: #e0ffff;
+$secondary-color: #ff8700;
+
+
+// Set text color based on background
+@function set-text-color($color) {
+    @if(lightness($color) > 70) {
+        @return #333;
+    } @else {
+        @return #fff;
+    }
+}
+
+// Set background & text color
+@mixin set-background($color) {
+    background-color: $color;
+    color: set-text-color($color)
+} 
+
